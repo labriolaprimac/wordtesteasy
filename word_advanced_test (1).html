@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Medio Microsoft Word</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .question-block {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .question-block h3 {
+            color: #2b5876;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .option {
+            display: block;
+            margin: 10px 0;
+            padding: 12px 15px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+        
+        .option input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            margin-top: 20px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .result {
+            display: none;
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .result.show {
+            display: block;
+        }
+        
+        .result.excellent {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+        }
+        
+        .result.good {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        
+        .result.pass {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+        
+        .result.fail {
+            background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+            color: white;
+        }
+        
+        .score-details {
+            margin-top: 15px;
+            font-size: 16px;
+            opacity: 0.95;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 Test Microsoft Word - Livello Medio</h1>
+            <p>30 domande | 1 punto per risposta corretta</p>
+        </div>
+        
+        <div class="content">
+            <form id="quizForm">
+                <div class="question-block">
+                    <h3>1. Quale combinazione di tasti serve per copiare il testo selezionato?</h3>
+                    <label class="option"><input type="radio" name="q1" value="a"> Ctrl + X</label>
+                    <label class="option"><input type="radio" name="q1" value="b"> Ctrl + V</label>
+                    <label class="option"><input type="radio" name="q1" value="c"> Ctrl + C</label>
+                    <label class="option"><input type="radio" name="q1" value="d"> Ctrl + Z</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>2. Come si applica il grassetto a un testo?</h3>
+                    <label class="option"><input type="radio" name="q2" value="a"> Ctrl + B</label>
+                    <label class="option"><input type="radio" name="q2" value="b"> Ctrl + I</label>
+                    <label class="option"><input type="radio" name="q2" value="c"> Ctrl + U</label>
+                    <label class="option"><input type="radio" name="q2" value="d"> Ctrl + G</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>3. Quale scheda contiene il comando per inserire un'immagine?</h3>
+                    <label class="option"><input type="radio" name="q3" value="a"> Home</label>
+                    <label class="option"><input type="radio" name="q3" value="b"> Layout</label>
+                    <label class="option"><input type="radio" name="q3" value="c"> Inserisci</label>
+                    <label class="option"><input type="radio" name="q3" value="d"> Progettazione</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>4. Come si salva un documento per la prima volta?</h3>
+                    <label class="option"><input type="radio" name="q4" value="a"> Ctrl + S oppure File > Salva con nome</label>
+                    <label class="option"><input type="radio" name="q4" value="b"> Solo File > Salva</label>
+                    <label class="option"><input type="radio" name="q4" value="c"> Alt + S</label>
+                    <label class="option"><input type="radio" name="q4" value="d"> F12 solamente</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>5. Quale comando permette di annullare l'ultima operazione?</h3>
+                    <label class="option"><input type="radio" name="q5" value="a"> Ctrl + Y</label>
+                    <label class="option"><input type="radio" name="q5" value="b"> Ctrl + Z</label>
+                    <label class="option"><input type="radio" name="q5" value="c"> Ctrl + A</label>
+                    <label class="option"><input type="radio" name="q5" value="d"> Ctrl + R</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>6. Dove si trova il comando per inserire un'interruzione di pagina?</h3>
+                    <label class="option"><input type="radio" name="q6" value="a"> Home</label>
+                    <label class="option"><input type="radio" name="q6" value="b"> Inserisci > Interruzione di pagina</label>
+                    <label class="option"><input type="radio" name="q6" value="c"> Progettazione</label>
+                    <label class="option"><input type="radio" name="q6" value="d"> Revisione</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>7. Come si crea un elenco puntato?</h3>
+                    <label class="option"><input type="radio" name="q7" value="a"> Inserisci > Elenco</label>
+                    <label class="option"><input type="radio" name="q7" value="b"> Layout > Punti elenco</label>
+                    <label class="option"><input type="radio" name="q7" value="c"> Home > Punti elenco</label>
+                    <label class="option"><input type="radio" name="q7" value="d"> Progettazione > Elenco</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>8. Quale strumento permette di cercare una parola nel documento?</h3>
+                    <label class="option"><input type="radio" name="q8" value="a"> Ctrl + B</label>
+                    <label class="option"><input type="radio" name="q8" value="b"> Ctrl + H</label>
+                    <label class="option"><input type="radio" name="q8" value="c"> Ctrl + F</label>
+                    <label class="option"><input type="radio" name="q8" value="d"> Ctrl + G</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>9. Come si inserisce un numero di pagina?</h3>
+                    <label class="option"><input type="radio" name="q9" value="a"> Layout > Numero pagina</label>
+                    <label class="option"><input type="radio" name="q9" value="b"> Home > Numeri</label>
+                    <label class="option"><input type="radio" name="q9" value="c"> Inserisci > Numero di pagina</label>
+                    <label class="option"><input type="radio" name="q9" value="d"> Progettazione > Pagine</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>10. Quale combinazione di tasti applica il corsivo?</h3>
+                    <label class="option"><input type="radio" name="q10" value="a"> Ctrl + B</label>
+                    <label class="option"><input type="radio" name="q10" value="b"> Ctrl + I</label>
+                    <label class="option"><input type="radio" name="q10" value="c"> Ctrl + U</label>
+                    <label class="option"><input type="radio" name="q10" value="d"> Ctrl + K</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>11. Come si allinea il testo al centro?</h3>
+                    <label class="option"><input type="radio" name="q11" value="a"> Ctrl + E</label>
+                    <label class="option"><input type="radio" name="q11" value="b"> Ctrl + C</label>
+                    <label class="option"><input type="radio" name="q11" value="c"> Ctrl + J</label>
+                    <label class="option"><input type="radio" name="q11" value="d"> Ctrl + R</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>12. Dove si trova il comando per inserire una tabella?</h3>
+                    <label class="option"><input type="radio" name="q12" value="a"> Home > Tabella</label>
+                    <label class="option"><input type="radio" name="q12" value="b"> Layout > Tabella</label>
+                    <label class="option"><input type="radio" name="q12" value="c"> Inserisci > Tabella</label>
+                    <label class="option"><input type="radio" name="q12" value="d"> Progettazione > Tabella</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>13. Quale comando sostituisce un testo con un altro in tutto il documento?</h3>
+                    <label class="option"><input type="radio" name="q13" value="a"> Ctrl + F</label>
+                    <label class="option"><input type="radio" name="q13" value="b"> Ctrl + H</label>
+                    <label class="option"><input type="radio" name="q13" value="c"> Ctrl + S</label>
+                    <label class="option"><input type="radio" name="q13" value="d"> Ctrl + R</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>14. Come si crea un collegamento ipertestuale?</h3>
+                    <label class="option"><input type="radio" name="q14" value="a"> Home > Collegamento</label>
+                    <label class="option"><input type="radio" name="q14" value="b"> Inserisci > Collegamento (o Ctrl + K)</label>
+                    <label class="option"><input type="radio" name="q14" value="c"> Layout > Link</label>
+                    <label class="option"><input type="radio" name="q14" value="d"> Progettazione > Hyperlink</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>15. Quale tasto funzione apre l'anteprima di stampa?</h3>
+                    <label class="option"><input type="radio" name="q15" value="a"> F5</label>
+                    <label class="option"><input type="radio" name="q15" value="b"> F12</label>
+                    <label class="option"><input type="radio" name="q15" value="c"> Ctrl + P</label>
+                    <label class="option"><input type="radio" name="q15" value="d"> Ctrl + F12</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>16. Come si modifica il colore del testo?</h3>
+                    <label class="option"><input type="radio" name="q16" value="a"> Layout > Colore carattere</label>
+                    <label class="option"><input type="radio" name="q16" value="b"> Home > Colore carattere</label>
+                    <label class="option"><input type="radio" name="q16" value="c"> Inserisci > Colore</label>
+                    <label class="option"><input type="radio" name="q16" value="d"> Progettazione > Colori</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>17. Quale combinazione permette di incollare il contenuto copiato?</h3>
+                    <label class="option"><input type="radio" name="q17" value="a"> Ctrl + C</label>
+                    <label class="option"><input type="radio" name="q17" value="b"> Ctrl + X</label>
+                    <label class="option"><input type="radio" name="q17" value="c"> Ctrl + V</label>
+                    <label class="option"><input type="radio" name="q17" value="d"> Ctrl + P</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>18. Come si aumenta la dimensione del carattere?</h3>
+                    <label class="option"><input type="radio" name="q18" value="a"> Ctrl + Shift + ></label>
+                    <label class="option"><input type="radio" name="q18" value="b"> Ctrl + +</label>
+                    <label class="option"><input type="radio" name="q18" value="c"> Alt + Shift + A</label>
+                    <label class="option"><input type="radio" name="q18" value="d"> Ctrl + Alt + +</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>19. Dove si trova il correttore ortografico?</h3>
+                    <label class="option"><input type="radio" name="q19" value="a"> Home > Ortografia</label>
+                    <label class="option"><input type="radio" name="q19" value="b"> Inserisci > Controllo</label>
+                    <label class="option"><input type="radio" name="q19" value="c"> Revisione > Controllo ortografia</label>
+                    <label class="option"><input type="radio" name="q19" value="d"> Layout > Ortografia</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>20. Come si applica la sottolineatura al testo?</h3>
+                    <label class="option"><input type="radio" name="q20" value="a"> Ctrl + S</label>
+                    <label class="option"><input type="radio" name="q20" value="b"> Ctrl + U</label>
+                    <label class="option"><input type="radio" name="q20" value="c"> Ctrl + L</label>
+                    <label class="option"><input type="radio" name="q20" value="d"> Ctrl + T</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>21. Quale comando permette di selezionare tutto il testo del documento?</h3>
+                    <label class="option"><input type="radio" name="q21" value="a"> Ctrl + S</label>
+                    <label class="option"><input type="radio" name="q21" value="b"> Ctrl + T</label>
+                    <label class="option"><input type="radio" name="q21" value="c"> Ctrl + A</label>
+                    <label class="option"><input type="radio" name="q21" value="d"> Ctrl + E</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>22. Come si inserisce un'intestazione nel documento?</h3>
+                    <label class="option"><input type="radio" name="q22" value="a"> Home > Intestazione</label>
+                    <label class="option"><input type="radio" name="q22" value="b"> Layout > Intestazione</label>
+                    <label class="option"><input type="radio" name="q22" value="c"> Inserisci > Intestazione</label>
+                    <label class="option"><input type="radio" name="q22" value="d"> Progettazione > Intestazione</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>23. Quale estensione ha un documento Word standard?</h3>
+                    <label class="option"><input type="radio" name="q23" value="a"> .doc</label>
+                    <label class="option"><input type="radio" name="q23" value="b"> .txt</label>
+                    <label class="option"><input type="radio" name="q23" value="c"> .docx</label>
+                    <label class="option"><input type="radio" name="q23" value="d"> .pdf</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>24. Come si cambia l'orientamento della pagina da verticale a orizzontale?</h3>
+                    <label class="option"><input type="radio" name="q24" value="a"> Home > Orientamento</label>
+                    <label class="option"><input type="radio" name="q24" value="b"> Inserisci > Orientamento</label>
+                    <label class="option"><input type="radio" name="q24" value="c"> Layout > Orientamento</label>
+                    <label class="option"><input type="radio" name="q24" value="d"> Visualizza > Orientamento</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>25. Quale comando consente di inserire un simbolo speciale?</h3>
+                    <label class="option"><input type="radio" name="q25" value="a"> Home > Simbolo</label>
+                    <label class="option"><input type="radio" name="q25" value="b"> Inserisci > Simbolo</label>
+                    <label class="option"><input type="radio" name="q25" value="c"> Layout > Caratteri speciali</label>
+                    <label class="option"><input type="radio" name="q25" value="d"> Progettazione > Simboli</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>26. Come si attiva la visualizzazione dei segni di formattazione (¶)?</h3>
+                    <label class="option"><input type="radio" name="q26" value="a"> Visualizza > Mostra tutto</label>
+                    <label class="option"><input type="radio" name="q26" value="b"> Home > Mostra/Nascondi ¶</label>
+                    <label class="option"><input type="radio" name="q26" value="c"> Layout > Segni di paragrafo</label>
+                    <label class="option"><input type="radio" name="q26" value="d"> Inserisci > Formattazione</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>27. Come si crea un elenco numerato?</h3>
+                    <label class="option"><input type="radio" name="q27" value="a"> Inserisci > Numeri</label>
+                    <label class="option"><input type="radio" name="q27" value="b"> Layout > Elenco numerato</label>
+                    <label class="option"><input type="radio" name="q27" value="c"> Home > Numerazione</label>
+                    <label class="option"><input type="radio" name="q27" value="d"> Progettazione > Numeri</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>28. Quale comando permette di ripetere l'ultima operazione?</h3>
+                    <label class="option"><input type="radio" name="q28" value="a"> Ctrl + Z</label>
+                    <label class="option"><input type="radio" name="q28" value="b"> Ctrl + Y</label>
+                    <label class="option"><input type="radio" name="q28" value="c"> F4</label>
+                    <label class="option"><input type="radio" name="q28" value="d"> Sia B che C</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>29. Come si modifica l'interlinea del paragrafo?</h3>
+                    <label class="option"><input type="radio" name="q29" value="a"> Inserisci > Interlinea</label>
+                    <label class="option"><input type="radio" name="q29" value="b"> Home > Interlinea e spaziatura paragrafo</label>
+                    <label class="option"><input type="radio" name="q29" value="c"> Progettazione > Spaziatura</label>
+                    <label class="option"><input type="radio" name="q29" value="d"> Layout > Righe</label>
+                </div>
+
+                <div class="question-block">
+                    <h3>30. Come si salva un documento in formato PDF?</h3>
+                    <label class="option"><input type="radio" name="q30" value="a"> Home > Salva come PDF</label>
+                    <label class="option"><input type="radio" name="q30" value="b"> Inserisci > Esporta PDF</label>
+                    <label class="option"><input type="radio" name="q30" value="c"> File > Salva con nome > scegliere PDF come tipo file</label>
+                    <label class="option"><input type="radio" name="q30" value="d"> Layout > Converti in PDF</label>
+                </div>
+
+                <button type="submit" class="submit-btn">📊 Calcola Risultato</button>
+            </form>
+
+            <div id="result" class="result"></div>
+        </div>
+    </div>
+
+    <script>
+        const answers = {
+            q1: 'c', q2: 'a', q3: 'c', q4: 'a', q5: 'b',
+            q6: 'b', q7: 'c', q8: 'c', q9: 'c', q10: 'b',
+            q11: 'a', q12: 'c', q13: 'b', q14: 'b', q15: 'c',
+            q16: 'b', q17: 'c', q18: 'a', q19: 'c', q20: 'b',
+            q21: 'c', q22: 'c', q23: 'c', q24: 'c', q25: 'b',
+            q26: 'b', q27: 'c', q28: 'd', q29: 'b', q30: 'c'
+        };
+
+        function calculateResult() {
+            let score = 0;
+            let answered = 0;
+            
+            for (let q in answers) {
+                const selected = document.querySelector('input[name="' + q + '"]:checked');
+                if (selected) {
+                    answered++;
+                    if (selected.value === answers[q]) {
+                        score++;
+                    }
+                }
+            }
+            
+            const resultDiv = document.getElementById('result');
+            const percentage = Math.round((score / 30) * 100);
+            
+            let resultClass = '';
+            let resultText = '';
+            
+            if (percentage >= 90) {
+                resultClass = 'excellent';
+                resultText = '🏆 Eccellente!';
+            } else if (percentage >= 75) {
+                resultClass = 'good';
+                resultText = '👏 Ottimo lavoro!';
+            } else if (percentage >= 60) {
+                resultClass = 'pass';
+                resultText = '✅ Discreto';
+            } else {
+                resultClass = 'fail';
+                resultText = '📚 Continua a studiare';
+            }
+            
+            resultDiv.className = 'result show ' + resultClass;
+            resultDiv.innerHTML = '<div>' + resultText + '</div><div class="score-details">Punteggio: ' + score + '/30 (' + percentage + '%)<br>Domande risposte: ' + answered + '/30</div>';
+            
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateResult();
+        });
+    </script>
+</body>
+</html>
